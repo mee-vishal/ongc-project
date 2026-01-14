@@ -16,16 +16,14 @@ class ROPInput(BaseModel):
     RPM: float
     Flow: float
 
-# CORS
+# CORS - allow your deployed frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:3000",
+        "https://ongc-rop.netlify.app",  # <--- your Netlify frontend URL
     ],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["*"],  # allow GET, POST, OPTIONS, etc.
     allow_headers=["*"],
 )
 
