@@ -148,7 +148,7 @@ function About() {
   };
 
   return (
-    <section ref={sectionRef} className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+    <section ref={sectionRef} id="about" className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
       {/* Main About Content */}
       <div className={`transition-all duration-500 ${showTechDetails ? 'opacity-0 scale-95 pointer-events-none absolute' : 'opacity-100 scale-100'}`}>
       {/* Animated Background Elements */}
@@ -198,7 +198,7 @@ function About() {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-16">
           {features.map((feature, idx) => {
             const Icon = feature.icon;
             return (

@@ -60,7 +60,7 @@ function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen bg-gray-900 overflow-hidden">
+    <section id="hero" className="relative min-h-screen bg-gray-900 overflow-hidden">
       {/* Background Image Carousel with Parallax */}
       <div className="absolute inset-0">
         {backgroundImages.map((img, index) => (

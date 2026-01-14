@@ -6,9 +6,12 @@ function Footer() {
   };
 
   const quickLinks = [
-    { name: 'Dashboard', href: '#dashboard' },
+    { name: 'Dashboard', href: '#hero' },
     { name: 'Prediction', href: '#prediction' },
     { name: 'Analytics', href: '#analytics' },
+    { name: 'Interns', href: '#interns' },
+    { name: 'Mentor', href: '#mentor' },
+    { name: 'Login/Signup', href: '#login' },
     { name: 'About', href: '#about' },
   ];
 
@@ -18,6 +21,14 @@ function Footer() {
     { name: 'Research Papers', href: '#research' },
     { name: 'Support', href: '#support' },
   ];
+
+  const handleScroll = (href) => {
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-300 overflow-hidden">
@@ -74,13 +85,13 @@ function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a
-                    href={link.href}
+                  <button
+                    onClick={() => handleScroll(link.href)}
                     className="text-gray-400 hover:text-yellow-400 transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <span className="w-0 group-hover:w-2 h-0.5 bg-yellow-500 transition-all duration-300"></span>
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
