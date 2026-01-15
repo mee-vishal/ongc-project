@@ -1,3 +1,9 @@
+import nitjLogo from '../assets/nitj.jpg';
+import upesLogo from '../assets/upeslogo.png';
+import plaksha from '../assets/plaksha.png';
+import uday from '../assets/uday.png';
+import vishal from '../assets/vishal.png';
+
 import { useState } from 'react';
 import { GraduationCap, MapPin, Award, Linkedin, Mail, Star, ChevronRight, X, Briefcase, Code, Target } from 'lucide-react';
 
@@ -9,12 +15,12 @@ function Interns() {
     {
       name: "Plaksha Kapoor",
       college: "Dr. B.R. Ambedkar National Institute of Technology Jalandhar",
-      collegeLogo: "https://upload.wikimedia.org/wikipedia/en/f/f8/Dr._B._R._Ambedkar_National_Institute_of_Technology%2C_Jalandhar_Logo.png",
+      collegeLogo:nitjLogo ,
       department: "Industrial & Production Engineering",
       year: "3rd Year",
-      photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+      photo:plaksha,
       color: "from-blue-500 to-cyan-500",
-      skills: ["Machine Learning", "Data Analysis", "Python"],
+      skills: ["Machine Learning", "Data Analysis", "Python & data pre-processing"],
       bio: "Passionate about leveraging AI and machine learning to optimize industrial processes. Focused on developing predictive models for drilling operations.",
       responsibilities: [
         "Data preprocessing and feature engineering for ROP prediction model",
@@ -29,12 +35,12 @@ function Interns() {
       ]
     },
     {
-      name: "Udey Kelar",
+      name: "Udey Kaler",
       college: "University of Petroleum and Energy Studies, Dehradun",
-      collegeLogo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/15/University_of_Petroleum_and_Energy_Studies_logo.png/220px-University_of_Petroleum_and_Energy_Studies_logo.png",
+      collegeLogo:upesLogo,
       department: "Petroleum Engineering",
       year: "3rd Year",
-      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      photo: uday,
       color: "from-purple-500 to-pink-500",
       skills: ["Drilling Operations", "Reservoir Analysis", "Well Design"],
       bio: "Petroleum engineering specialist with deep understanding of drilling mechanics and reservoir behavior. Bridging domain expertise with data science.",
@@ -53,10 +59,10 @@ function Interns() {
     {
       name: "Vishal Mishra",
       college: "Dr. B.R. Ambedkar National Institute of Technology Jalandhar",
-      collegeLogo: "https://upload.wikimedia.org/wikipedia/en/f/f8/Dr._B._R._Ambedkar_National_Institute_of_Technology%2C_Jalandhar_Logo.png",
+      collegeLogo: nitjLogo,
       department: "Industrial & Production Engineering",
       year: "3rd Year",
-      photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+      photo:vishal,
       color: "from-orange-500 to-red-500",
       skills: ["Process Optimization", "AI Integration", "Project Management"],
       bio: "Specializing in process optimization and system integration. Leading the development of user-friendly interfaces for the prediction system.",
@@ -187,15 +193,6 @@ function Interns() {
                   </div>
                 </div>
 
-                {/* Social Links */}
-                <div className={`flex justify-center gap-3 mb-4 opacity-0 group-hover:opacity-100 transition-all duration-500 ${hoveredCard === idx ? 'translate-y-0' : 'translate-y-2'}`}>
-                  <button className="p-2 bg-blue-100 hover:bg-blue-200 rounded-full transition-colors">
-                    <Linkedin className="h-4 w-4 text-blue-600" />
-                  </button>
-                  <button className="p-2 bg-red-100 hover:bg-red-200 rounded-full transition-colors">
-                    <Mail className="h-4 w-4 text-red-600" />
-                  </button>
-                </div>
 
                 {/* View Details Button */}
                 <button
@@ -215,29 +212,11 @@ function Interns() {
 
         {/* Stats Section */}
         <div className="grid grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-3">
-              <Target className="h-6 w-6 text-white" />
-            </div>
-            <div className="text-2xl font-bold text-gray-900 mb-1">AI-Powered</div>
-            <div className="text-sm text-gray-600 font-medium">ROP Prediction System</div>
-          </div>
+        
           
-          <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-3">
-              <Code className="h-6 w-6 text-white" />
-            </div>
-            <div className="text-2xl font-bold text-gray-900 mb-1">ML Models</div>
-            <div className="text-sm text-gray-600 font-medium">Advanced Algorithms</div>
-          </div>
+         
           
-          <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-3">
-              <Briefcase className="h-6 w-6 text-white" />
-            </div>
-            <div className="text-2xl font-bold text-gray-900 mb-1">Real-time</div>
-            <div className="text-sm text-gray-600 font-medium">Performance Analysis</div>
-          </div>
+        
         </div>
       </div>
 
