@@ -151,6 +151,7 @@ function Prediction() {
                   <p className="text-gray-600 leading-relaxed">
                     Enter your drilling parameters on the left and click "Predict ROP" to get instant AI-powered predictions.
                   </p>
+                  <p> ⏳ First prediction may take 80–100 seconds as the server wakes up from idle.</p>
                 </div>
               </div>
             )}
@@ -185,6 +186,8 @@ function Prediction() {
                 </div>
               </div>
             )}
+
+
 
             {error && (
               <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-3xl shadow-2xl p-8 border-2 border-red-200 animate-slide-in">
