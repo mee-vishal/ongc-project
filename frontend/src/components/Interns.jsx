@@ -1,6 +1,6 @@
 import nitjLogo from '../assets/nitj.jpg';
 import upesLogo from '../assets/upeslogo.png';
-import plaksha from '../assets/plaksha.png';
+import plaksha from '../assets/plaksha.jpeg';
 import uday from '../assets/uday.png';
 import vishal from '../assets/vishal.png';
 

@@ -116,6 +116,8 @@ function Prediction() {
                 disabled={loading}
                 className="group relative w-full bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white font-bold py-3 px-6 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
+       
+
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   {loading ? (
                     <>
@@ -131,6 +133,9 @@ function Prediction() {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
               </button>
+                       <p className="text-xs text-gray-500 text-center mt-3 leading-relaxed">
+  ⏳ First prediction may take 80–100 seconds as the server wakes up from idle.
+</p>
             </div>
           </div>
 
@@ -176,14 +181,7 @@ function Prediction() {
                     </span>
                     <span className="text-2xl font-semibold text-gray-600">m/hr</span>
                   </div>
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Performance Level:</span>
-                      <span className={`font-bold ${result > 20 ? 'text-green-600' : result > 10 ? 'text-yellow-600' : 'text-orange-600'}`}>
-                        {result > 20 ? 'Excellent' : result > 10 ? 'Good' : 'Moderate'}
-                      </span>
-                    </div>
-                  </div>
+              
                 </div>
               </div>
             )}
