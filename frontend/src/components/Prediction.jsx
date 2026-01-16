@@ -160,7 +160,7 @@ function Prediction() {
                 <div className="max-w-md mx-auto">
                   <Loader2 className="h-16 w-16 text-blue-600 animate-spin mx-auto mb-6" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">Analyzing Parameters</h3>
-                  <p className="text-gray-600">Processing drilling data with AI algorithms...⏳ First prediction may take 80–100 seconds as the server wakes up from idle.</p>
+                  <p className="text-gray-600">⏳ First prediction may take 80–100 seconds as the server wakes up from idle.</p>
                 </div>
               </div>
             )}

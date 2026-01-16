@@ -20,7 +20,8 @@ class ROPInput(BaseModel):
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://ongc-rop.netlify.app",  # <--- your Netlify frontend URL
+        "https://ongc-rop.netlify.app",
+         # <--- your Netlify frontend URL
     ],
     allow_credentials=True,
     allow_methods=["*"],  # allow GET, POST, OPTIONS, etc.
