@@ -15,7 +15,7 @@ export default function RecommendParams() {
     setResults([]);
 
     try {
-      const res = await fetch("http://localhost:8000/recommend-params", {
+      const res = await fetch("https://ongc-project-2.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ Depth: parseFloat(depth), Target_ROP: parseFloat(targetROP) }),
