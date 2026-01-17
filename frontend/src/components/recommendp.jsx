@@ -16,8 +16,7 @@ export default function RecommendParams() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleSubmit = async (e) => {
-    if (e) e.preventDefault();
+  const handleSubmit = async () => {
     setLoading(true);
     setError(null);
     setResults([]);
@@ -63,12 +62,15 @@ export default function RecommendParams() {
           <p className="text-base text-gray-600 max-w-2xl mx-auto">
             Enter Depth and Target ROP to get the top 3 drilling parameter sets from historical data.
           </p>
+          <p className="text-sm text-amber-600 font-medium mt-2 max-w-2xl mx-auto">
+            ⏳ First prediction may take 80–100 seconds as the server wakes up from idle.
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 items-start">
           {/* Input Form */}
           <div className="lg:col-span-1 bg-white rounded-3xl shadow-2xl p-6 border border-gray-100 transform transition-all duration-300 hover:shadow-3xl lg:sticky lg:top-24">
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <div className="space-y-4">
               {inputFields.map((field) => {
                 const Icon = field.icon;
                 return (
@@ -86,14 +88,13 @@ export default function RecommendParams() {
                       max={field.max}
                       onChange={(e) => field.setter(parseFloat(e.target.value))}
                       className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-yellow-400/20 focus:border-yellow-500 transition-all duration-300 text-base font-medium text-gray-900 bg-gray-50 hover:bg-white"
-                      required
                     />
                   </div>
                 );
               })}
 
               <button
-                type="submit"
+                onClick={handleSubmit}
                 disabled={loading}
                 className="group relative w-full bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white font-bold py-3 px-6 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
@@ -111,7 +112,7 @@ export default function RecommendParams() {
                   )}
                 </span>
               </button>
-            </form>
+            </div>
           </div>
 
           {/* Results */}
@@ -151,23 +152,23 @@ export default function RecommendParams() {
                   <table className="w-full text-center border border-gray-200 rounded-xl overflow-hidden">
                     <thead className="bg-green-100 text-gray-900 font-semibold">
                       <tr>
-                        <th>Well</th>
-                        <th>Depth</th>
-                        <th>Bit Weight</th>
-                        <th>RPM</th>
-                        <th>Flow</th>
-                        <th>ROP</th>
+                        <th className="py-3 px-4">Well</th>
+                        <th className="py-3 px-4">Depth</th>
+                        <th className="py-3 px-4">Bit Weight</th>
+                        <th className="py-3 px-4">RPM</th>
+                        <th className="py-3 px-4">Flow</th>
+                        <th className="py-3 px-4">ROP</th>
                       </tr>
                     </thead>
                     <tbody>
                       {results.map((row, index) => (
-                        <tr key={index} className="hover:bg-green-50">
-                          <td>{row.well}</td>
-                          <td>{row.Depth}</td>
-                          <td>{row["Bit Weight(klb)"]}</td>
-                          <td>{row["RPM(RPM)"]}</td>
-                          <td>{row["Flow In Rate(galUS/min)"]}</td>
-                          <td>{row["ROP - Average(m/hr)"]}</td>
+                        <tr key={index} className="hover:bg-green-50 bg-white">
+                          <td className="py-3 px-4 border-t border-gray-200">{row.well}</td>
+                          <td className="py-3 px-4 border-t border-gray-200">{row.Depth}</td>
+                          <td className="py-3 px-4 border-t border-gray-200">{row["Bit Weight(klb)"]}</td>
+                          <td className="py-3 px-4 border-t border-gray-200">{row["RPM(RPM)"]}</td>
+                          <td className="py-3 px-4 border-t border-gray-200">{row["Flow In Rate(galUS/min)"]}</td>
+                          <td className="py-3 px-4 border-t border-gray-200">{row["ROP - Average(m/hr)"]}</td>
                         </tr>
                       ))}
                     </tbody>
