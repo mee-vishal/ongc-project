@@ -5,6 +5,7 @@ import Interns from "./components/Interns";
 import Mentor from "./components/Mentor";
 import About from "./components/About";
 import Footer from "./components/Footer";
+import RecommendParams from "./components/recommendp";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Hero />
       <Prediction />
+      <RecommendParams/>
       <Interns />
       <Mentor />
       <About />
