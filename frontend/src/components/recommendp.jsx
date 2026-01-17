@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Activity, Gauge, TrendingUp, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
 export default function RecommendParams() {
@@ -7,6 +7,14 @@ export default function RecommendParams() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleSubmit = async (e) => {
     if (e) e.preventDefault();
@@ -15,8 +23,7 @@ export default function RecommendParams() {
     setResults([]);
 
     try {
-    const res = await fetch("https://ongc-project-2.onrender.com/recommend-params", {
-
+      const res = await fetch("https://ongc-project-2.onrender.com/recommend-params", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ Depth: parseFloat(depth), Target_ROP: parseFloat(targetROP) }),
@@ -139,30 +146,51 @@ export default function RecommendParams() {
                   <h3 className="text-2xl font-bold text-gray-900">Top 3 Recommendations</h3>
                 </div>
 
-                <table className="w-full text-center border border-gray-200 rounded-xl overflow-hidden">
-                  <thead className="bg-green-100 text-gray-900 font-semibold">
-                    <tr>
-                      <th>Well</th>
-                      <th>Depth</th>
-                      <th>Bit Weight</th>
-                      <th>RPM</th>
-                      <th>Flow</th>
-                      <th>ROP</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {results.map((row, index) => (
-                      <tr key={index} className="hover:bg-green-50 transition-colors">
-                        <td>{row.well}</td>
-                        <td>{row.Depth}</td>
-                        <td>{row["Bit Weight(klb)"]}</td>
-                        <td>{row["RPM(RPM)"]}</td>
-                        <td>{row["Flow In Rate(galUS/min)"]}</td>
-                        <td>{row["ROP - Average(m/hr)"]}</td>
+                {/* Desktop Table */}
+                {!isMobile && (
+                  <table className="w-full text-center border border-gray-200 rounded-xl overflow-hidden">
+                    <thead className="bg-green-100 text-gray-900 font-semibold">
+                      <tr>
+                        <th>Well</th>
+                        <th>Depth</th>
+                        <th>Bit Weight</th>
+                        <th>RPM</th>
+                        <th>Flow</th>
+                        <th>ROP</th>
                       </tr>
+                    </thead>
+                    <tbody>
+                      {results.map((row, index) => (
+                        <tr key={index} className="hover:bg-green-50">
+                          <td>{row.well}</td>
+                          <td>{row.Depth}</td>
+                          <td>{row["Bit Weight(klb)"]}</td>
+                          <td>{row["RPM(RPM)"]}</td>
+                          <td>{row["Flow In Rate(galUS/min)"]}</td>
+                          <td>{row["ROP - Average(m/hr)"]}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+
+                {/* Mobile Cards */}
+                {isMobile && (
+                  <div className="space-y-4">
+                    {results.map((row, index) => (
+                      <div key={index} className="bg-white rounded-2xl p-4 shadow-md border border-gray-200">
+                        <h4 className="font-bold text-lg text-green-700 mb-2">{row.well}</h4>
+                        <div className="grid grid-cols-2 gap-3 text-sm">
+                          <div><b>Depth:</b> {row.Depth}</div>
+                          <div><b>ROP:</b> {row["ROP - Average(m/hr)"]}</div>
+                          <div><b>Bit Wt:</b> {row["Bit Weight(klb)"]}</div>
+                          <div><b>RPM:</b> {row["RPM(RPM)"]}</div>
+                          <div className="col-span-2"><b>Flow:</b> {row["Flow In Rate(galUS/min)"]}</div>
+                        </div>
+                      </div>
                     ))}
-                  </tbody>
-                </table>
+                  </div>
+                )}
               </div>
             )}
 
