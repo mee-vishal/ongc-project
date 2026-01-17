@@ -135,6 +135,9 @@ export default function RecommendParams() {
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl shadow-xl p-12 border-2 border-blue-200 text-center animate-pulse">
                 <Loader2 className="h-16 w-16 text-blue-600 animate-spin mx-auto mb-6" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Fetching Recommendations...</h3>
+                <p className="text-sm text-amber-600 font-medium mt-3">
+                  ⏳ First prediction may take 80–100 seconds as the server wakes up from idle.
+                </p>
               </div>
             )}
 
