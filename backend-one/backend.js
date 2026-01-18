@@ -7,7 +7,7 @@ app.use(express.json());
 
 // Enable CORS for React frontend (adjust port if needed)
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: "https://ongc-rop.netlify.app/"
 }));
 
 // Load Excel file

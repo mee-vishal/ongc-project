@@ -25,8 +25,8 @@ export default function RecommendParams() {
       const token = localStorage.getItem("authToken");
       
       // Change this URL based on your setup
-      const API_URL = "http://localhost:8000"; // Use this for local development
-      // const API_URL = "https://ongc-project-2.onrender.com"; // Use this for production
+     // Use this for local development
+      const API_URL = "https://ongc-project-2.onrender.com"; // Use this for production
       
       const res = await fetch(API_URL + "/recommend-params", {
         method: "POST",
