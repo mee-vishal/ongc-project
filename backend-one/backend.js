@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors()); // allow Netlify & localhost
 
 // Load Excel file (MUST be committed to GitHub)
-const EXCEL_FILE = path.join("cleaned_wells_final_copy.xlsx");
+const EXCEL_FILE = path.join("cleaned_wells_final copy.xlsx");
 const workbook = XLSX.readFile(EXCEL_FILE);
 
 // Convert all sheets to one array
