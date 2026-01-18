@@ -7,10 +7,10 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors()); // allow Netlify & localhost
+app.use(cors());
 
-// Load Excel file (MUST be committed to GitHub)
-const EXCEL_FILE = path.join("cleaned_wells_final copy.xlsx");
+// Load Excel file (must be committed)
+const EXCEL_FILE = path.join(__dirname, "cleaned_wells_final copy.xlsx");
 const workbook = XLSX.readFile(EXCEL_FILE);
 
 // Convert all sheets to one array
@@ -22,20 +22,37 @@ workbook.SheetNames.forEach(sheetName => {
 });
 
 // Logic
-function findBestParameters(data, depth, targetROP) {
-  const depthFiltered = data.filter(
-    row => row.Depth >= depth - 30 && row.Depth <= depth + 30
-  );
-
-  depthFiltered.forEach(row => {
-    row.rop_diff = Math.abs(row["ROP - Average(m/hr)"] - targetROP);
+function findBestParametersPerWell(data, depth, targetROP) {
+  // Group data by well
+  const wells = {};
+  data.forEach(row => {
+    if (!wells[row.well]) wells[row.well] = [];
+    wells[row.well].push(row);
   });
 
-  const ropFiltered = depthFiltered
-    .filter(row => row.rop_diff <= 10)
-    .sort((a, b) => a.rop_diff - b.rop_diff);
+  let bestPerWell = [];
 
-  return ropFiltered.slice(0, 3);
+  for (const well in wells) {
+    const wellData = wells[well].filter(
+      row => row.Depth >= depth - 30 && row.Depth <= depth + 30
+    );
+
+    if (wellData.length === 0) continue;
+
+    // Compute ROP difference
+    wellData.forEach(row => {
+      row.rop_diff = Math.abs(row["ROP - Average(m/hr)"] - targetROP);
+    });
+
+    // Get the row with the smallest ROP diff for this well
+    wellData.sort((a, b) => a.rop_diff - b.rop_diff);
+    bestPerWell.push(wellData[0]);
+  }
+
+  // Now get top 3 overall by ROP diff
+  bestPerWell.sort((a, b) => a.rop_diff - b.rop_diff);
+
+  return bestPerWell.slice(0, 3);
 }
 
 // API
@@ -46,12 +63,12 @@ app.post("/recommend-params", (req, res) => {
     return res.status(400).json({ error: "Depth and Target_ROP are required" });
   }
 
-  const best3 = findBestParameters(allData, Depth, Target_ROP);
+  const best3 = findBestParametersPerWell(allData, Depth, Target_ROP);
 
   res.json({ best_3_parameters: best3 });
 });
 
-// IMPORTANT: Render port
+// Render port
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
