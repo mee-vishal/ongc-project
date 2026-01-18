@@ -21,6 +21,19 @@ workbook.SheetNames.forEach(sheetName => {
   allData.push(...sheetData);
 });
 
+// Helper to round numbers to 2 decimal places
+function roundNumbers(obj) {
+  const newObj = {};
+  for (const key in obj) {
+    if (typeof obj[key] === "number") {
+      newObj[key] = Math.round(obj[key] * 100) / 100;
+    } else {
+      newObj[key] = obj[key];
+    }
+  }
+  return newObj;
+}
+
 // Logic
 function findBestParametersPerWell(data, depth, targetROP) {
   // Group data by well
@@ -52,7 +65,10 @@ function findBestParametersPerWell(data, depth, targetROP) {
   // Now get top 3 overall by ROP diff
   bestPerWell.sort((a, b) => a.rop_diff - b.rop_diff);
 
-  return bestPerWell.slice(0, 3);
+  // Round all numeric values to 2 decimal places
+  const rounded = bestPerWell.slice(0, 3).map(row => roundNumbers(row));
+
+  return rounded;
 }
 
 // API
