@@ -22,19 +22,18 @@ export default function RecommendParams() {
     setResults([]);
 
     try {
-      const token = localStorage.getItem("authToken");
-      
-      // Change this URL based on your setup
-     // Use this for local development
-      const API_URL = "https://ongc-project-2.onrender.com"; // Use this for production
-      
+      // Backend URL (Render)
+      const API_URL = "https://ongc-project-2.onrender.com";
+
       const res = await fetch(API_URL + "/recommend-params", {
         method: "POST",
         headers: { 
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + token
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({ Depth: parseFloat(depth), Target_ROP: parseFloat(targetROP) }),
+        body: JSON.stringify({
+          Depth: parseFloat(depth),
+          Target_ROP: parseFloat(targetROP)
+        }),
       });
 
       if (!res.ok) throw new Error(`Server error: ${res.status}`);
