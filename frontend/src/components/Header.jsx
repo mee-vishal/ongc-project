@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Menu, X, Home, BarChart3, Info, Users, GraduationCap, LogIn } from "lucide-react";
+import ongc from '../assets/ongc.png';
 
-function Header({ onLoginClick }) {
+function Header({ onLoginClick, isAuthenticated, onLogout }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
@@ -10,20 +11,24 @@ function Header({ onLoginClick }) {
     { name: "Analytics", icon: BarChart3, href: "#analytics" },
     { name: "Interns", icon: Users, href: "#interns" },
     { name: "Mentor", icon: GraduationCap, href: "#mentor" },
-    { name: "Login/Signup", icon: LogIn, href: "#login" }, // login button
+    { name: isAuthenticated ? "Logout" : "Login/Signup", icon: LogIn, href: "#login" },
     { name: "About", icon: Info, href: "#about" },
   ];
 
   const handleClick = (item) => {
     if (item.name === "Login/Signup") {
-      onLoginClick(); // open login modal
+      onLoginClick();
+    } else if (item.name === "Logout") {
+      if (onLogout) {
+        onLogout();
+      }
     } else {
       const id = item.href.replace("#", "");
       const el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-      setIsMenuOpen(false); // close mobile menu
+      setIsMenuOpen(false);
     }
   };
 
@@ -35,9 +40,11 @@ function Header({ onLoginClick }) {
           <div className="flex items-center gap-3 md:gap-4 group">
             <div className="relative">
               <div className="absolute inset-0 bg-white rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-              <div className="relative h-10 w-10 md:h-12 md:w-12 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
-                <span className="text-xl md:text-2xl font-bold text-orange-600">O</span>
-              </div>
+              <img 
+                src={ongc} 
+                alt="ONGC Logo" 
+                className="relative h-10 w-10 md:h-12 md:w-12 rounded-full object-contain shadow-lg transform group-hover:scale-110 transition-transform duration-300 bg-white p-1"
+              />
             </div>
             <div>
               <h1 className="text-xl md:text-3xl font-bold text-gray-900 tracking-tight">ONGC</h1>

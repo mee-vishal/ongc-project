@@ -35,7 +35,8 @@ function Interns() {
       ]
     },
     {
-      name: "Udey Kaler",
+      
+      name: "Uday Kaler",
       college: "University of Petroleum and Energy Studies, Dehradun",
       collegeLogo:upesLogo,
       department: "Petroleum Engineering",

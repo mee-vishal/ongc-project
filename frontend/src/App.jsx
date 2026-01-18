@@ -6,6 +6,8 @@ import Mentor from "./components/Mentor";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import RecommendParams from "./components/recommendp";
+import LoginSignup from "./components/Footer";
+
 
 function App() {
   return (
