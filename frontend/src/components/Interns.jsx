@@ -34,6 +34,28 @@ function Interns() {
         "Published research paper on drilling optimization"
       ]
     },
+        {
+      name: "Vishal Mishra",
+      college: "Dr. B.R. Ambedkar National Institute of Technology Jalandhar",
+      collegeLogo: nitjLogo,
+      department: "Industrial & Production Engineering",
+      year: "3rd Year",
+      photo:vishal,
+      color: "from-orange-500 to-red-500",
+      skills: ["Process Optimization", "AI Integration", "Project Management"],
+      bio: "Specializing in process optimization and system integration. Leading the development of user-friendly interfaces for the prediction system.",
+      responsibilities: [
+        "Frontend development and UI/UX design",
+        "API integration and backend connectivity",
+        "Project documentation and technical writing",
+        "User testing and feedback implementation"
+      ],
+      achievements: [
+        "Designed intuitive prediction interface with 95% user satisfaction",
+        "Implemented real-time prediction system with sub-second response",
+        "Created comprehensive project documentation"
+      ]
+    },
     {
       
       name: "Uday Kaler",
@@ -57,28 +79,7 @@ function Interns() {
         "Conducted field data validation studies"
       ]
     },
-    {
-      name: "Vishal Mishra",
-      college: "Dr. B.R. Ambedkar National Institute of Technology Jalandhar",
-      collegeLogo: nitjLogo,
-      department: "Industrial & Production Engineering",
-      year: "3rd Year",
-      photo:vishal,
-      color: "from-orange-500 to-red-500",
-      skills: ["Process Optimization", "AI Integration", "Project Management"],
-      bio: "Specializing in process optimization and system integration. Leading the development of user-friendly interfaces for the prediction system.",
-      responsibilities: [
-        "Frontend development and UI/UX design",
-        "API integration and backend connectivity",
-        "Project documentation and technical writing",
-        "User testing and feedback implementation"
-      ],
-      achievements: [
-        "Designed intuitive prediction interface with 95% user satisfaction",
-        "Implemented real-time prediction system with sub-second response",
-        "Created comprehensive project documentation"
-      ]
-    },
+
   ];
 
   return (
