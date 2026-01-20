@@ -144,24 +144,60 @@ function Hero() {
 
           {/* CTA Buttons with Advanced Animations */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <button className="group relative px-10 py-5 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-2xl font-bold text-lg text-gray-900 overflow-hidden transform transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-orange-500/50 active:scale-95">
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                Get Started
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
-            </button>
+           <button
+  onClick={() => {
+    document.getElementById("prediction")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }}
+  className="group relative px-10 py-5 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-2xl font-bold text-lg text-gray-900 overflow-hidden transform transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-orange-500/50 active:scale-95"
+>
+  <span className="relative z-10 flex items-center justify-center gap-2">
+    Get Started
+    <svg
+      className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 7l5 5m0 0l-5 5m5-5H6"
+      />
+    </svg>
+  </span>
+  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+</button>
+
             
-            <button className="group px-10 py-5 bg-white/5 backdrop-blur-xl rounded-2xl font-bold text-lg text-white border-2 border-white/30 transform transition-all duration-500 hover:bg-white/10 hover:scale-110 hover:border-yellow-500/70 hover:shadow-2xl hover:shadow-white/20 active:scale-95">
-              <span className="flex items-center justify-center gap-2">
-                Explore Features
-                <svg className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
-            </button>
+      <button
+  onClick={() => {
+    document.getElementById("interns")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }}
+  className="group px-10 py-5 bg-white/5 backdrop-blur-xl rounded-2xl font-bold text-lg text-white border-2 border-white/30 transform transition-all duration-500 hover:bg-white/10 hover:scale-110 hover:border-yellow-500/70 hover:shadow-2xl hover:shadow-white/20 active:scale-95"
+>
+  <span className="flex items-center justify-center gap-2">
+    Meet Developers
+    <svg
+      className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M14 5l7 7m0 0l-7 7m7-7H3"
+      />
+    </svg>
+  </span>
+</button>
+
           </div>
 
           {/* Stats Bar */}

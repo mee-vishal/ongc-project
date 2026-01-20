@@ -7,7 +7,7 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import RecommendParams from "./components/recommendp";
 import LoginSignup from "./components/Footer";
-
+// import WellGraph from "./components/WellGraph"
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
       <Hero />
       <Prediction />
       <RecommendParams/>
+     
       <Interns />
       <Mentor />
       <About />

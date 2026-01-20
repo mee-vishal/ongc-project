@@ -156,24 +156,7 @@ function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm text-center md:text-left">
-              © 2026 ONGC Well Performance Analytics. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6 text-sm">
-              <a href="#privacy" className="text-gray-400 hover:text-yellow-400 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#terms" className="text-gray-400 hover:text-yellow-400 transition-colors">
-                Terms of Use
-              </a>
-            </div>
-          </div>
-          <p className="text-gray-500 text-sm text-center mt-4">
-            For academic and research purposes only.
-          </p>
-        </div>
+      
       </div>
 
       <style>{`
