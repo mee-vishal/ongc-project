@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, ChevronUp } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, ChevronUp } from 'lucide-react';
 
 function Footer() {
   const scrollToTop = () => {
@@ -16,13 +16,23 @@ function Footer() {
   ];
 
   const resources = [
-    { name: 'Documentation', href: '#docs' },
-    { name: 'API Reference', href: '#api' },
-    { name: 'Research Papers', href: '#research' },
-    { name: 'Support', href: '#support' },
+    {
+      name: 'Documentation',
+      href: '#docs',
+    },
+    {
+      name: 'Github',
+      href: 'https://github.com/mee-vishal/ongc-project',
+    },
+   
+    {
+      name: 'Support',
+      href: '#support',
+    },
   ];
 
   const handleScroll = (href) => {
+    if (!href.startsWith('#')) return;
     const id = href.replace('#', '');
     const el = document.getElementById(id);
     if (el) {
@@ -32,13 +42,13 @@ function Footer() {
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-300 overflow-hidden">
-      {/* Animated Background Elements */}
+      {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
         <div className="absolute top-10 left-10 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
         <div className="absolute bottom-10 right-10 w-64 h-64 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
       </div>
 
-      {/* Scroll to Top Button */}
+      {/* Scroll To Top */}
       <button
         onClick={scrollToTop}
         className="absolute -top-6 left-1/2 transform -translate-x-1/2 p-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 group"
@@ -47,9 +57,8 @@ function Footer() {
       </button>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* About Section */}
+          {/* About */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
@@ -60,18 +69,38 @@ function Footer() {
                 <p className="text-sm text-gray-400">ROP Prediction System</p>
               </div>
             </div>
+
             <p className="text-gray-400 mb-4 leading-relaxed">
               Revolutionizing drilling operations through AI-powered Rate of Penetration predictions and real-time analytics.
             </p>
+
+            {/* Social Links */}
             <div className="flex gap-3">
-              <a href="#" className="p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-300 group">
-                <Linkedin className="h-5 w-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+              <a
+                href="https://www.linkedin.com/company/oilandnaturalgascorporation/?originalSubdomain=in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-colors group"
+              >
+                <Linkedin className="h-5 w-5 text-gray-400 group-hover:text-blue-400" />
               </a>
-              <a href="#" className="p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-300 group">
-                <Twitter className="h-5 w-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+
+              <a
+                href="https://twitter.com/ONGC_India"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-colors group"
+              >
+                <Twitter className="h-5 w-5 text-gray-400 group-hover:text-sky-400" />
               </a>
-              <a href="#" className="p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-300 group">
-                <Facebook className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
+
+              <a
+                href="https://www.instagram.com/ongcofficial?igsh=MXNvbzVzZzJkYmp0YQ=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-colors group"
+              >
+                <Instagram className="h-5 w-5 text-gray-400 group-hover:text-pink-400" />
               </a>
             </div>
           </div>
@@ -87,9 +116,9 @@ function Footer() {
                 <li key={idx}>
                   <button
                     onClick={() => handleScroll(link.href)}
-                    className="text-gray-400 hover:text-yellow-400 transition-colors duration-300 flex items-center gap-2 group"
+                    className="text-gray-400 hover:text-yellow-400 transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-0 group-hover:w-2 h-0.5 bg-yellow-500 transition-all duration-300"></span>
+                    <span className="w-0 group-hover:w-2 h-0.5 bg-yellow-500 transition-all"></span>
                     {link.name}
                   </button>
                 </li>
@@ -108,9 +137,11 @@ function Footer() {
                 <li key={idx}>
                   <a
                     href={resource.href}
-                    className="text-gray-400 hover:text-yellow-400 transition-colors duration-300 flex items-center gap-2 group"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-yellow-400 transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-0 group-hover:w-2 h-0.5 bg-yellow-500 transition-all duration-300"></span>
+                    <span className="w-0 group-hover:w-2 h-0.5 bg-yellow-500 transition-all"></span>
                     {resource.name}
                   </a>
                 </li>
@@ -118,45 +149,6 @@ function Footer() {
             </ul>
           </div>
         </div>
-
-        {/* Contact Information */}
-        <div className="border-t border-gray-700 pt-8 mb-8">
-          <h4 className="text-lg font-bold text-white mb-4 text-center">Contact Information</h4>
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-              <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg">
-                <Mail className="h-5 w-5 text-white" />
-              </div>
-              <div className="text-left">
-                <p className="text-xs text-gray-500">Email</p>
-                <p className="text-sm font-semibold text-gray-300">rop@ongc.co.in</p>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-              <div className="p-2 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg">
-                <Phone className="h-5 w-5 text-white" />
-              </div>
-              <div className="text-left">
-                <p className="text-xs text-gray-500">Phone</p>
-                <p className="text-sm font-semibold text-gray-300">+91-XXX-XXX-XXXX</p>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-              <div className="p-2 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg">
-                <MapPin className="h-5 w-5 text-white" />
-              </div>
-              <div className="text-left">
-                <p className="text-xs text-gray-500">Location</p>
-                <p className="text-sm font-semibold text-gray-300">ONGC, Dehradun</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-      
       </div>
 
       <style>{`
