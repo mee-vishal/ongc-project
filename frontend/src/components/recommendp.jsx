@@ -185,6 +185,7 @@
                               </div>
                             </div>
    
+   
                             <div className="grid grid-cols-5 gap-6 p-6">
                               <div className="text-center">
                                 <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Depth</p>
