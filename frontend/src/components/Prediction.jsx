@@ -68,6 +68,30 @@ function Prediction() {
           <p className="text-base text-gray-600 max-w-2xl mx-auto">
             Enter drilling parameters to get real-time Rate of Penetration predictions powered by machine learning
           </p>
+    <p className="text-sm font-semibold text-blue-700 mt-3 max-w-2xl mx-auto 
+bg-blue-50 border border-blue-200 rounded-lg px-3 py-2">
+
+
+  At the current stage, the system supports predictions for the 12¼″ bore section,
+  which represents the most commonly analyzed hole size in the available ONGC drilling dataset.
+</p>
+
+<div className="mt-3 max-w-xs mx-auto">
+  <label className="block text-sm font-semibold text-gray-700 mb-1">
+    Bore Size (inches)
+  </label>
+  <select
+  
+    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl bg-gray-100 text-gray-700 cursor-allowed"
+  >
+    <option>12¼"</option>
+    <option>17½"</option>
+  <option>12¼"</option>
+  <option>8½"</option>
+  <option>6⅛"</option>
+  </select>
+</div>
+
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 items-start">
@@ -136,6 +160,7 @@ function Prediction() {
                        <p className="text-xs text-gray-500 text-center mt-3 leading-relaxed">
   ⏳ First prediction may take 80–100 seconds as the server wakes up from idle.
 </p>
+
             </div>
           </div>
 
@@ -161,6 +186,7 @@ function Prediction() {
                   <Loader2 className="h-16 w-16 text-blue-600 animate-spin mx-auto mb-6" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">Analyzing Parameters</h3>
                   <p className="text-gray-600">Processing drilling data with AI algorithms...⏳ First prediction may take 80–100 seconds as the server wakes up from idle.</p>
+                  
                 </div>
               </div>
             )}
@@ -219,6 +245,18 @@ function Prediction() {
                     </div>
                   );
                 })}
+                <div className="flex items-start gap-3 text-sm">
+  <div className="p-1.5 bg-gradient-to-br from-gray-500 to-gray-600 rounded-lg mt-0.5">
+    <span className="text-white text-xs font-bold">K</span>
+  </div>
+  <div>
+    <span className="font-semibold text-gray-900">Formation Constant:</span>
+    <span className="text-gray-600 ml-1">
+      Assumed constant for the current dataset and bore section
+    </span>
+  </div>
+</div>
+
               </div>
             </div>
           </div>
