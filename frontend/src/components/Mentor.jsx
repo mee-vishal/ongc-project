@@ -1,5 +1,5 @@
 import { Award, Briefcase, MapPin, Book, Target, Users, Sparkles } from 'lucide-react';
-import nishithishwerPhoto from '../assets/nishi.jpeg';
+import nishithishwerPhoto from '../assets/nishi.png';
 import pratimPhoto from '../assets/pratim.png';
 
 function Mentor() {
