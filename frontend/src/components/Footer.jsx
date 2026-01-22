@@ -18,7 +18,7 @@ function Footer() {
   const resources = [
     {
       name: 'Documentation',
-      href: '#docs',
+      href: 'https://drive.google.com/file/d/1QUsoSXCuXG8m_g-5Sa4IgFFTRO1vxSOv/view?usp=sharing',
     },
     {
       name: 'Github',

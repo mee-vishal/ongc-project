@@ -5,7 +5,7 @@ import pratimPhoto from '../assets/pratim.png';
 function Mentor() {
   const mentors = [
     {
-      name: "Nishithishwer",
+      name: "Mr. Nishithishwer",
       designation: "Chief Engineer (Drilling)",
       department: "Well Planning & Drilling (R&D)",
       institute: "Institute of Drilling & Well Engineering, ONGC, Dehradun",
