@@ -84,10 +84,10 @@ function About() {
   ];
 
   const stats = [
-    { icon: Target, value: `${counters.wells}+`, label: "Wells Monitored", color: "from-blue-500 to-cyan-500" },
+    { icon: Target, value: "7000+", label: "Data Rows", color: "from-blue-500 to-cyan-500" },
     { icon: BarChart3, value: `${counters.accuracy}%`, label: "Accuracy Rate", color: "from-purple-500 to-pink-500" },
     { icon: Zap, value: "Real-time", label: "Predictions", color: "from-orange-500 to-red-500" },
-    { icon: Shield, value: "24/7", label: "Monitoring", color: "from-green-500 to-emerald-500" },
+    { icon: Shield, value: "Data", label: "Monitoring", color: "from-green-500 to-emerald-500" },
   ];
 
   const capabilities = [
