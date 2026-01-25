@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown, Zap, Target, TrendingUp, Activity, Database, Shield } from 'lucide-react';
+import rig from '../assets/rig.png';
+import vr from '../assets/vr.png';
+
 
 function Hero() {
   const [scrollY, setScrollY] = useState(0);
@@ -8,6 +11,8 @@ function Hero() {
 
   // High-quality oil & gas industry images
   const backgroundImages = [
+     rig,
+     vr,
     'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1920&q=80', // Oil rig at sunset
     'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&q=80', // Industrial facility
     'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1920&q=80', // Oil platform

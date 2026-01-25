@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, Home, BarChart3, Info, Users, GraduationCap, LogIn } from "lucide-react";
 import ongc from '../assets/ongc.png';
+import rig from '../assets/rig.png';
 
 function Header({ onLoginClick, isAuthenticated, onLogout }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
