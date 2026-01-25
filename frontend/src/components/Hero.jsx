@@ -59,9 +59,9 @@ function Hero() {
   ];
 
   const stats = [
-    { icon: Activity, value: '99.9%', label: 'Accuracy' },
-    { icon: Database, value: '10M+', label: 'Data Points' },
-    { icon: Shield, value: '24/7', label: 'Monitoring' },
+    { icon: Activity, value: '95%', label: 'Accuracy' },
+    { icon: Database, value: '7K+', label: 'Data Points' },
+    { icon: Shield, value: 'Data', label: 'Monitoring' },
   ];
 
   return (
