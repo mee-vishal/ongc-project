@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Home, BarChart3, Info, Users, GraduationCap, LogIn } from "lucide-react";
 import ongc from '../assets/ongc.png';
-import rig from '../assets/rig.png';
 
 function Header({ onLoginClick, isAuthenticated, onLogout }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,7 +43,7 @@ function Header({ onLoginClick, isAuthenticated, onLogout }) {
               <img 
                 src={ongc} 
                 alt="ONGC Logo" 
-                className="relative h-10 w-10 md:h-12 md:w-12 rounded-full object-contain shadow-lg transform group-hover:scale-110 transition-transform duration-300 bg-white p-1"
+                className="relative h-10 w-10 md:h-12 md:w-12  object-contain shadow-lg transform group-hover:scale-110 transition-transform duration-300 bg-white p-1"
               />
             </div>
             <div>
